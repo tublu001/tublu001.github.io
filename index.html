@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv='content-type' content='no-cache'>
     <meta http-equiv="Pragma" content="no-cache">
     <title>Manash Rauta - Portfolio vCard</title>
@@ -26,6 +26,121 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        .project-details {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%; /* Set a maximum width for the popup */
+            max-height: 80%; /* Set a maximum height for the popup */
+            overflow: auto; /* Enable scrolling if the content is too large */
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .common-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            backdrop-filter: blur(8px); /* Adjust the blur intensity */
+        }
+
+        .common-popup {
+            background-color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            transform: scale(0.8); /* Initial scale for animation */
+            opacity: 0; /* Initial opacity for animation */
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        /* Additional styling for close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        li {
+            margin-bottom: 10px; /* Default bottom margin between list items */
+        }
+        .marked-list > li {
+            list-style-type: disclosure-closed;
+            margin-bottom: 10px;
+            padding-left: 20px; /* Adjust padding as needed */
+        }
+
+        .common-popup > h2 {
+            margin-bottom: 10px;
+        }
+
+        /* Custom styles for the specific unordered list with class "custom-list" */
+        ul.marked-list {
+            list-style-type: disclosure-closed; /* Specific bullet style */
+            color: black; /* Specific text color */
+            /*font-family: 'Courier New', monospace; !* Specific font family *!*/
+            font-size: 18px; /* Specific font size */
+            padding-left: 20px; /* Adjust padding as needed */
+        }
+    </style>
+    <script>
+        function showCommonPopup(detailsId) {
+            var detailsContent = document.getElementById(detailsId).innerHTML;
+            document.getElementById('commonPopup').innerHTML = detailsContent;
+            document.getElementById('commonOverlay').style.display = 'flex';
+
+            // Apply 3D-style animation
+            setTimeout(function () {
+                document.getElementById('commonPopup').style.transform = 'scale(1)';
+                document.getElementById('commonPopup').style.opacity = '1';
+            }, 50); // 50ms delay for smoother animation
+        }
+
+        function hideCommonPopup() {
+            document.getElementById('commonPopup').style.transform = 'scale(0.8)';
+            document.getElementById('commonPopup').style.opacity = '0';
+
+            setTimeout(function () {
+                document.getElementById('commonOverlay').style.display = 'none';
+            }, 300); // Wait for the animation to complete (300ms)
+        }
+
+        function hideDetails(detailsId) {
+            document.getElementById(detailsId).style.display = 'none';
+            hideCommonPopup();
+        }
+    </script>
 </head>
 
 <body>
@@ -629,61 +744,11 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Web design</h5>
-                            <data value="80">87%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 80%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Java</h5>
+                            <h5 class="h5">Java | Python | PHP | C | C++</h5>
                             <data value="94">94%</data>
                         </div>
                         <div class="skill-progress-bg">
                             <div class="skill-progress-fill" style="width: 94%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Python</h5>
-                            <data value="95">95%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 95%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">C</h5>
-                            <data value="88">88%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 88%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">C++</h5>
-                            <data value="91">91%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 91%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">PHP</h5>
-                            <data value="88">88%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 88%;"></div>
                         </div>
                     </li>
 
@@ -699,7 +764,7 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Spring</h5>
+                            <h5 class="h5">Spring | Spring Boot</h5>
                             <data value="90">90%</data>
                         </div>
                         <div class="skill-progress-bg">
@@ -709,37 +774,7 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Spring Boot</h5>
-                            <data value="89">89%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 89%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Hibernate/JPA</h5>
-                            <data value="91">91%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 91%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">HTML</h5>
-                            <data value="94">94%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 94%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">CSS</h5>
+                            <h5 class="h5">HTML | Bootstrap | CSS</h5>
                             <data value="87">87%</data>
                         </div>
                         <div class="skill-progress-bg">
@@ -749,17 +784,8 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Bootstrap</h5>
-                            <data value="86">86%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 86%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">MySQL</h5>
+                            <h5 class="h5">MySQL | Postgresql | Oracle | Hibernate/JPA | Cassandra | NoSQL |
+                                Firebase </h5>
                             <data value="92">92%</data>
                         </div>
                         <div class="skill-progress-bg">
@@ -769,57 +795,7 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">NoSQL</h5>
-                            <data value="87">87%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 87%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Firebase</h5>
-                            <data value="83">83%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 83%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Postgresql</h5>
-                            <data value="90">90%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 90%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Oracle</h5>
-                            <data value="88">88%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 88%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Cassandra</h5>
-                            <data value="86">86%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 86%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Redis DB</h5>
+                            <h5 class="h5">Distributed Cache | Redis Cache</h5>
                             <data value="91">91%</data>
                         </div>
                         <div class="skill-progress-bg">
@@ -829,7 +805,7 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Zookeeper</h5>
+                            <h5 class="h5">Zookeeper | Kafka</h5>
                             <data value="85">85%</data>
                         </div>
                         <div class="skill-progress-bg">
@@ -839,17 +815,57 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Kafka</h5>
-                            <data value="89">89%</data>
+                            <h5 class="h5">Elastic Search | Quad Trees | CAP Theorem | Orchestration & Sharding</h5>
+                            <data value="88">88%</data>
                         </div>
                         <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 89%;"></div>
+                            <div class="skill-progress-fill" style="width: 88%;"></div>
                         </div>
                     </li>
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">Elastic Search</h5>
+                            <h5 class="h5">Git | Bitbucket</h5>
+                            <data value="92">92%</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                            <div class="skill-progress-fill" style="width: 92%;"></div>
+                        </div>
+                    </li>
+
+                    <li class="skills-item">
+                        <div class="title-wrapper">
+                            <h5 class="h5">AWS | S3</h5>
+                            <data value="94">94%</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                            <div class="skill-progress-fill" style="width: 94%;"></div>
+                        </div>
+                    </li>
+
+                    <li class="skills-item">
+                        <div class="title-wrapper">
+                            <h5 class="h5">Postman | Putty | Splunk | Kibana</h5>
+                            <data value="85">85%</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                            <div class="skill-progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </li>
+
+                    <li class="skills-item">
+                        <div class="title-wrapper">
+                            <h5 class="h5">DOS | Linux</h5>
+                            <data value="94">94%</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                            <div class="skill-progress-fill" style="width: 94%;"></div>
+                        </div>
+                    </li>
+
+                    <li class="skills-item">
+                        <div class="title-wrapper">
+                            <h5 class="h5">IntelliJ IDEA | Eclipse | VS Code</h5>
                             <data value="93">93%</data>
                         </div>
                         <div class="skill-progress-bg">
@@ -859,234 +875,13 @@
 
                     <li class="skills-item">
                         <div class="title-wrapper">
-                            <h5 class="h5">S3</h5>
-                            <data value="87">87%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 87%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Quad Trees</h5>
-                            <data value="85">85%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 85%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">CAP Theorem</h5>
+                            <h5 class="h5">Confluence | Jira | Rally | Jenkins</h5>
                             <data value="88">88%</data>
                         </div>
                         <div class="skill-progress-bg">
                             <div class="skill-progress-fill" style="width: 88%;"></div>
                         </div>
                     </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Orchestration & Sharding</h5>
-                            <data value="84">84%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 84%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Git</h5>
-                            <data value="92">92%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 92%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Bitbucket</h5>
-                            <data value="89">89%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 89%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Rally</h5>
-                            <data value="87">87%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 87%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Maven</h5>
-                            <data value="91">91%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 91%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">AWS</h5>
-                            <data value="94">94%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 94%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Postman</h5>
-                            <data value="85">85%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 85%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Splunk</h5>
-                            <data value="88">88%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 88%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Kibana</h5>
-                            <data value="86">86%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 86%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Jenkins</h5>
-                            <data value="90">90%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 90%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Putty</h5>
-                            <data value="83">83%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 83%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">J2EE</h5>
-                            <data value="91">91%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 91%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">JDBC</h5>
-                            <data value="87">87%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 87%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Linux</h5>
-                            <data value="94">94%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 94%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">IntelliJ IDEA</h5>
-                            <data value="93">93%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 93%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Eclipse</h5>
-                            <data value="89">89%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 89%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">VS Code</h5>
-                            <data value="92">92%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 92%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Confluence</h5>
-                            <data value="88">88%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 88%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Jira</h5>
-                            <data value="90">90%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 90%;"></div>
-                        </div>
-                    </li>
-
-                    <li class="skills-item">
-                        <div class="title-wrapper">
-                            <h5 class="h5">Rally</h5>
-                            <data value="85">85%</data>
-                        </div>
-                        <div class="skill-progress-bg">
-                            <div class="skill-progress-fill" style="width: 85%;"></div>
-                        </div>
-                    </li>
-
 
                 </ul>
             </section>
@@ -1108,6 +903,9 @@
                 <ul class="filter-list">
                     <li class="filter-item">
                         <button class="active" data-filter-btn>All</button>
+                    </li>
+                    <li class="filter-item">
+                        <button data-filter-btn>Enterprise Application</button>
                     </li>
                     <li class="filter-item">
                         <button data-filter-btn>Software development</button>
@@ -1133,6 +931,9 @@
                             <button data-select-item>All</button>
                         </li>
                         <li class="select-item">
+                            <button data-select-item>Enterprise Application</button>
+                        </li>
+                        <li class="select-item">
                             <button data-select-item>Software development</button>
                         </li>
                         <li class="select-item">
@@ -1147,8 +948,41 @@
 
                 <ul class="project-list">
 
+                    <li class="project-item active" data-filter-item data-category="Enterprise Application">
+                        <a href="#" onclick="showCommonPopup('mpgs')">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="assets/images/mpgs.jpg" alt="DocEase">
+                            </figure>
+                            <h3 class="project-title">Payment Gateway</h3>
+                            <p class="project-category">Enterprise Application</p>
+                        </a>
+                        <div class="project-details" id="mpgs">
+                            <!-- Project details content goes here -->
+                            <h2>MPGS - Mastercard Payment Gateway System</h2>
+                            <ul class="marked-list">
+                                <li>
+                                    Led development and enhancement of Mastercard Payment Gateway's Payment API's and infrastructure, improving API response time by 20% for major schemes like Mastercard, Visa, and American Express.
+                                </li>
+                                <li>
+                                    Collaborated in Scaled Agile sprints, achieving a 30% reduction in post-release defects through Test-Driven Development (TDD). Integrated JUnit and Jenkins for automated testing, and optimizing code quality. Utilized Agile methodologies and tools like Jira and Confluence.
+                                </li>
+                                <li>
+                                    Innovated Docease! tool, reducing test result documentation from 3-4 days to mere seconds. Achieved 100% accuracy and an intuitively seamless experience using Spring Boot and DocX4J. Integrated with Postman and application logs for comprehensive testing insights.
+                                </li>
+                                <li>
+                                    Implemented JUnit unit tests with ~90% code coverage, reducing deployment errors by 25%. Deployed solutions over CI/CD pipelines, optimizing processes. Managed versioning and release strategies using Git and Jenkins.
+                                </li>
+                            </ul>
+
+                            <button class="close-button" onclick="hideDetails('mpgs')">Close</button>
+                        </div>
+                    </li>
+
                     <li class="project-item active" data-filter-item data-category="software development">
-                        <a href="#">
+                        <a href="#" onclick="showCommonPopup('docEaseDetails')">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
@@ -1158,11 +992,29 @@
                             <h3 class="project-title">DocEase</h3>
                             <p class="project-category">Software development</p>
                         </a>
+                        <div class="project-details" id="docEaseDetails">
+                            <!-- Project details content goes here -->
+                            <h2>DocEase - Documentation in seconds</h2>
+                            <ul class="marked-list">
+                                <li style="list-style-type: disclosure-closed;">
+                                    Description: Engineered a robust Mastercard tool, automating data retrieval and organization, amplifying
+                                    efficiency, reducing errors, and elevating productivity significantly.
+                                </li>
+                                <li>
+                                    Its automated approach and organizational feature reduce ~3-4 days of manual efforts to ~30 minutes.
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, NodeJs, DocX4J, Apache POI
+                                </li>
+                            </ul>
+                            <button class="close-button" onclick="hideDetails('docEaseDetails')">Close</button>
+                        </div>
                     </li>
 
 
+
                     <li class="project-item active" data-filter-item data-category="artificial intelligence">
-                        <a href="#">
+                        <a href="#" onclick="showCommonPopup('travelBuddy')">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
@@ -1172,11 +1024,28 @@
                             <h3 class="project-title">AI Powered Travel Buddy</h3>
                             <p class="project-category">Artificial Intelligence</p>
                         </a>
+                        <div class="project-details" id="travelBuddy">
+                            <!-- Project details content goes here -->
+                            <h2>AI Powered Travel Buddy</h2>
+                            <ul class="marked-list">
+                                <li>
+                                    Engineered an AI travel assistant leveraging state-of-the-art technologies: Redis cache for optimized data storage, ChatGPT Turbo 3.5 for advanced natural language processing, and DALL·E 3 for image generation.
+                                </li>
+                                <li>
+                                    Achieved measurable impact: 30% faster response time with Redis cache, 20% improvement in customer satisfaction leveraging ChatGPT Turbo 3.5, enhanced visual capabilities using DALL·E 3 and broadened accessibility through third-party app integration.
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, Angular, ChatGPT Turbo 3.5, DALL·E 3, Redis Cache, MySQL, Swagger
+                                </li>
+                            </ul>
+
+                            <button class="close-button" onclick="hideDetails('travelBuddy')">Close</button>
+                        </div>
                     </li>
 
 
                     <li class="project-item active" data-filter-item data-category="web development">
-                        <a href="#">
+                        <a href="#" onclick="showCommonPopup('bms')">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
@@ -1186,10 +1055,31 @@
                             <h3 class="project-title">BookMyShow</h3>
                             <p class="project-category">Web development</p>
                         </a>
+                        <div class="project-details" id="bms">
+                            <!-- Project details content goes here -->
+                            <h2>BookMyShow- Movie/Event Ticket Booking Platform</h2>
+                            <ul class="marked-list">
+                                <li>
+                                    Developed a robust Java Spring Boot BookMyShow app for seamless online ticket booking, featuring user authentication, seat selection, payment processing, real-time updates, and scalable, modular architecture.
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, MySql (RDBMS)
+                                </li>
+                            </ul>
+                            <button class="close-button" onclick="hideDetails('bms')">Close</button>
+                        </div>
                     </li>
 
 
                 </ul>
+
+                <div class="common-overlay" id="commonOverlay" onclick="hideCommonPopup()">
+                    <div class="common-popup" id="commonPopup">
+                        <!-- Content will be dynamically populated here -->
+                        <button onclick="hideCommonPopup()">Close</button>
+                    </div>
+                </div>
+
 
             </section>
 
