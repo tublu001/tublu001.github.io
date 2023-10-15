@@ -95,6 +95,7 @@
         li {
             margin-bottom: 10px; /* Default bottom margin between list items */
         }
+
         .marked-list > li {
             list-style-type: disclosure-closed;
             margin-bottom: 10px;
@@ -124,6 +125,48 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .first-letter-larger::first-letter {
+            font-size: 1.5em; /* Adjust the size as needed */
+        }
+
+        .waving-hand-emoji {
+            animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+            animation-duration: 2.5s; /* Change to speed up or slow down */
+            animation-iteration-count: infinite; /* Never stop waving :) */
+            transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+            display: inline-block;
+            font-size: 1.5em;
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: rotate(0.0deg)
+            }
+            10% {
+                transform: rotate(14.0deg)
+            }
+            /* The following five values can be played with to make the waving more or less extreme */
+            20% {
+                transform: rotate(-8.0deg)
+            }
+            30% {
+                transform: rotate(14.0deg)
+            }
+            40% {
+                transform: rotate(-4.0deg)
+            }
+            50% {
+                transform: rotate(10.0deg)
+            }
+            60% {
+                transform: rotate(0.0deg)
+            }
+            /* Reset for the last half to pause */
+            100% {
+                transform: rotate(0.0deg)
+            }
         }
     </style>
 
@@ -333,8 +376,10 @@
             </header>
 
             <section class="about-text">
-                <p style="text-indent: 20px">
-                    Hi, I'm Manash Rauta, a backend Java developer who loves turning ideas into sturdy software. I got
+                <p class="first-letter-larger" style="text-indent: 20px">
+                    Hi<span style="text-indent: 0px;" class="waving-hand-emoji">👋</span>, I'm Manash Rauta, a backend
+                    Java developer who loves
+                    turning ideas into sturdy software. I got
                     into coding because I wanted to understand how things work, and now I enjoy creating reliable
                     backend systems.
                 </p>
@@ -354,8 +399,8 @@
                 </p>
 
                 <p style="margin-bottom: 7px">
-                    Click below for viewing my resume directly. Thank you!!
-                    <button style="margin-left: unset; --fs-6: 11px; padding: 10px 10px;"
+                    Click below 👇 for viewing my resume... Thank you!!
+                    <button style="margin-top: 10px; margin-left: unset; --fs-6: 11px; padding: 10px 10px;"
                             onclick="window.location.href='https://drive.google.com/file/d/1XoS-v1tLRTaz3GUWZtH9aZaF_CVQ6I9k/view'"
                             class="form-btn" type="submit" data-form-btn>
                         <ion-icon name="paper-plane"></ion-icon>
@@ -458,6 +503,49 @@
 
             </section>
 
+            <!--
+                - Achievements
+            -->
+
+            <section class="timeline">
+
+                <div class="title-wrapper">
+                    <div class="icon-box">
+                        <ion-icon name="book-outline"></ion-icon>
+                    </div>
+                    <h3 class="h3">Achievements</h3>
+                </div>
+
+                <ol class="timeline-list">
+                    <li class="timeline-item">
+                        <div class="content-card" style="padding: 20px;">
+                            <h3 class="h3 timeline-item-title">Employee of the Month - EPAM Systems - 2023</h3>
+                            <span>EPAM Systems Pvt. Ltd.</span>
+                            <p class="timeline-text" style="text-indent: 20px">
+                                -- Honoured with the Pat On Back award four times, showcasing exceptional dedication
+                                and performance.
+                            </p>
+                            <p class="timeline-text" style="text-indent: 20px">
+                                -- Recognized by the client for building the Docease application tool, surpassing eight
+                                teams, as a testament to remarkable commitment and accomplishment.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="content-card" style="padding: 20px;">
+                            <h3 class="h3 timeline-item-title">Mobile Robotics - Nationalist - World Skills Competition
+                                - 2019</h3>
+                            <span>Biju Pattnaik University of Technology</span>
+                            <p class="timeline-text" style="text-indent: 20px">
+                                -- Achieved Medallion of excellence in mobile robotics; seeking to create an autonomous
+                                robot by integrating sensors, navigation, and vision processing, prioritizing
+                                planning and localization.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
 
             <!--
               - testimonials
@@ -481,10 +569,9 @@
 
                             <div class="testimonials-text" data-testimonials-text>
                                 <p>
-                                    You are a true innovator. You have created the tool for gateway
-                                    to rsc testing which would really reduce the effort of delivery
-                                    team for testing and validation from 2 days to a couple of hours.
-                                    Decease is a great tool. Keep it up
+                                    You are a true innovator. You have created the tool for gateway to rsc testing which
+                                    would really reduce the effort of delivery team for testing and validation from 2
+                                    days to a couple of hours. Decease is a great tool. Keep it up
                                 </p>
                             </div>
 
@@ -651,7 +738,7 @@
 
                 <ol class="timeline-list">
                     <li class="timeline-item">
-                        <h4 class="h4 timeline-item-title">Software Development Engineer 1</h4>
+                        <h4 class="h4 timeline-item-title first-letter-larger">Software Development Engineer 1</h4>
                         <span>EPAM Systems Pvt. Ltd.</span>
                         <span>Nov, 2021 — Present</span>
                         <p class="timeline-text" style="text-indent: 20px">
@@ -675,7 +762,7 @@
                     </li>
 
                     <li class="timeline-item">
-                        <h4 class="h4 timeline-item-title">Software Developer Intern</h4>
+                        <h4 class="h4 timeline-item-title first-letter-larger">Software Developer Intern</h4>
                         <span>Shiash Info Solutions</span>
                         <span>Jul, 2021 — Oct, 2021</span>
                         <p class="timeline-text" style="text-indent: 20px">
@@ -705,7 +792,7 @@
 
                 <ol class="timeline-list">
                     <li class="timeline-item">
-                        <h4 class="h4 timeline-item-title">MS in Computer Science</h4>
+                        <h4 class="h4 timeline-item-title first-letter-larger">MS in Computer Science</h4>
                         <span>Woolf University - Scaler Neovarsity</span>
                         <span>2022 — 2024</span>
                         <p class="timeline-text" style="text-indent: 20px">
@@ -721,7 +808,8 @@
                         </p>
                     </li>
                     <li class="timeline-item">
-                        <h4 class="h4 timeline-item-title">B.Tech in Electronics & Telecommunication</h4>
+                        <h4 class="h4 timeline-item-title first-letter-larger">B.Tech in Electronics &
+                            Telecommunication</h4>
                         <span>Biju Pattnaik University of Technology</span>
                         <span>2018 — 2021</span>
                         <p class="timeline-text" style="text-indent: 20px">
@@ -734,7 +822,7 @@
                         </p>
                     </li>
                     <li class="timeline-item">
-                        <h4 class="h4 timeline-item-title">Diploma in Mechatronics</h4>
+                        <h4 class="h4 timeline-item-title first-letter-larger">Diploma in Mechatronics</h4>
                         <span>Central Tool Room and Training Centre</span>
                         <span>2015 — 2018</span>
                         <p class="timeline-text" style="text-indent: 20px">
@@ -977,16 +1065,26 @@
                             <h2>MPGS - Mastercard Payment Gateway System</h2>
                             <ul class="marked-list">
                                 <li>
-                                    Led development and enhancement of Mastercard Payment Gateway's Payment API's and infrastructure, improving API response time by 20% for major schemes like Mastercard, Visa, and American Express.
+                                    Led development and enhancement of Mastercard Payment Gateway's Payment API's and
+                                    infrastructure, improving API response time by 20% for major schemes like
+                                    Mastercard, Visa, and American Express.
                                 </li>
                                 <li>
-                                    Collaborated in Scaled Agile sprints, achieving a 30% reduction in post-release defects through Test-Driven Development (TDD). Integrated JUnit and Jenkins for automated testing, and optimizing code quality. Utilized Agile methodologies and tools like Jira and Confluence.
+                                    Collaborated in Scaled Agile sprints, achieving a 30% reduction in post-release
+                                    defects through Test-Driven Development (TDD). Integrated JUnit and Jenkins for
+                                    automated testing, and optimizing code quality. Utilized Agile methodologies and
+                                    tools like Jira and Confluence.
                                 </li>
                                 <li>
-                                    Innovated Docease! tool, reducing test result documentation from 3-4 days to mere seconds. Achieved 100% accuracy and an intuitively seamless experience using Spring Boot and DocX4J. Integrated with Postman and application logs for comprehensive testing insights.
+                                    Innovated Docease! tool, reducing test result documentation from 3-4 days to mere
+                                    seconds. Achieved 100% accuracy and an intuitively seamless experience using Spring
+                                    Boot and DocX4J. Integrated with Postman and application logs for comprehensive
+                                    testing insights.
                                 </li>
                                 <li>
-                                    Implemented JUnit unit tests with ~90% code coverage, reducing deployment errors by 25%. Deployed solutions over CI/CD pipelines, optimizing processes. Managed versioning and release strategies using Git and Jenkins.
+                                    Implemented JUnit unit tests with ~90% code coverage, reducing deployment errors by
+                                    25%. Deployed solutions over CI/CD pipelines, optimizing processes. Managed
+                                    versioning and release strategies using Git and Jenkins.
                                 </li>
                             </ul>
 
@@ -1009,12 +1107,14 @@
                             <!-- Project details content goes here -->
                             <h2>DocEase - Documentation in seconds</h2>
                             <ul class="marked-list">
-                                <li style="list-style-type: disclosure-closed;">
-                                    Description: Engineered a robust Mastercard tool, automating data retrieval and organization, amplifying
+                                <li>
+                                    Description: Engineered a robust Mastercard tool, automating data retrieval and
+                                    organization, amplifying
                                     efficiency, reducing errors, and elevating productivity significantly.
                                 </li>
                                 <li>
-                                    Its automated approach and organizational feature reduce ~3-4 days of manual efforts to ~30 minutes.
+                                    Its automated approach and organizational feature reduce ~3-4 days of manual efforts
+                                    to ~30 minutes.
                                 </li>
                                 <li>
                                     <strong>TechStack:</strong> JAVA, Spring Boot, NodeJs, DocX4J, Apache POI
@@ -1023,7 +1123,6 @@
                             <button class="close-button" onclick="hideDetails('docEaseDetails')">Close</button>
                         </div>
                     </li>
-
 
 
                     <li class="project-item active" data-filter-item data-category="artificial intelligence">
@@ -1042,13 +1141,19 @@
                             <h2>AI Powered Travel Buddy</h2>
                             <ul class="marked-list">
                                 <li>
-                                    Engineered an AI travel assistant leveraging state-of-the-art technologies: Redis cache for optimized data storage, ChatGPT Turbo 3.5 for advanced natural language processing, and DALL·E 3 for image generation.
+                                    Engineered an AI travel assistant leveraging state-of-the-art technologies: Redis
+                                    cache for optimized data storage, ChatGPT Turbo 3.5 for advanced natural language
+                                    processing, and DALL·E 3 for image generation.
                                 </li>
                                 <li>
-                                    Achieved measurable impact: 30% faster response time with Redis cache, 20% improvement in customer satisfaction leveraging ChatGPT Turbo 3.5, enhanced visual capabilities using DALL·E 3 and broadened accessibility through third-party app integration.
+                                    Achieved measurable impact: 30% faster response time with Redis cache, 20%
+                                    improvement in customer satisfaction leveraging ChatGPT Turbo 3.5, enhanced visual
+                                    capabilities using DALL·E 3 and broadened accessibility through third-party app
+                                    integration.
                                 </li>
                                 <li>
-                                    <strong>TechStack:</strong> JAVA, Spring Boot, Angular, ChatGPT Turbo 3.5, DALL·E 3, Redis Cache, MySQL, Swagger
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, Angular, ChatGPT Turbo 3.5, DALL·E 3,
+                                    Redis Cache, MySQL, Swagger
                                 </li>
                             </ul>
 
@@ -1073,13 +1178,210 @@
                             <h2>BookMyShow- Movie/Event Ticket Booking Platform</h2>
                             <ul class="marked-list">
                                 <li>
-                                    Developed a robust Java Spring Boot BookMyShow app for seamless online ticket booking, featuring user authentication, seat selection, payment processing, real-time updates, and scalable, modular architecture.
+                                    Developed a robust Java Spring Boot BookMyShow app for seamless online ticket
+                                    booking, featuring user authentication, seat selection, payment processing,
+                                    real-time updates, and scalable, modular architecture.
+                                </li>
+                                <li>
+                                    Incorporate secure payment integration into the application to enable seamless and
+                                    efficient transactions. Utilize industry-standard encryption and payment gateways,
+                                    providing users with a variety of payment options for convenience.
+                                </li>
+                                <li>
+                                    Design the software system to be scalable, ensuring it can handle varying loads
+                                    during peak booking times. Utilize scalable architecture and cloud-based solutions
+                                    to guarantee a smooth and responsive experience for users, even as the platform
+                                    grows in popularity.
+                                </li>
+                                <li>
+                                    👉 <a style="display: unset" href="https://github.com/tublu001/bookmyshow">Click
+                                    here</a> 👈 for GitHub link
                                 </li>
                                 <li>
                                     <strong>TechStack:</strong> JAVA, Spring Boot, MySql (RDBMS)
                                 </li>
                             </ul>
                             <button class="close-button" onclick="hideDetails('bms')">Close</button>
+                        </div>
+                    </li>
+
+                    <li class="project-item active" data-filter-item data-category="software development">
+                        <a href="#" onclick="showCommonPopup('parkinglot')">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="assets/images/parkinglot.png" alt="Parking Lot">
+                            </figure>
+                            <h3 class="project-title">Multilevel Parking Lot</h3>
+                            <p class="project-category">Software development</p>
+                        </a>
+                        <div class="project-details" id="parkinglot">
+                            <!-- Project details content goes here -->
+                            <h2>Multilevel Parking Lot</h2>
+                            <ul class="marked-list">
+                                <li>
+                                    Efficient Space Management: Utilize Spring Boot for a robust backend, optimizing
+                                    parking space utilization. Implement data structures and algorithms to track
+                                    availability on different levels.
+                                </li>
+                                <li>
+                                    Integrated Ticketing: Create a comprehensive ticketing system with Spring Boot.
+                                    Generate, validate, and manage tickets, incorporating secure QR codes.
+                                </li>
+                                <li>
+                                    Seamless Payment Integration: Utilize Spring Boot for secure payment transactions.
+                                    Offer diverse payment options for a user-friendly experience.
+                                </li>
+                                <li>
+                                    👉 <a style="display: unset" href="https://github.com/tublu001/ParkingLot">Click
+                                    here</a> 👈 for GitHub link
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, MySQL
+                                </li>
+                            </ul>
+                            <button class="close-button" onclick="hideDetails('parkinglot')">Close</button>
+                        </div>
+                    </li>
+
+                    <li class="project-item active" data-filter-item data-category="artificial intelligence">
+                        <a href="#" onclick="showCommonPopup('tictactoe')">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="assets/images/tictactoe.png" alt="Tic Tac Toe">
+                            </figure>
+                            <h3 class="project-title">(NxN) Tic Tac Toe Game Board</h3>
+                            <p class="project-category">Artificial Intelligence</p>
+                        </a>
+                        <div class="project-details" id="tictactoe">
+                            <!-- Project details content goes here -->
+                            <h2>(NxN) Tic Tac Toe Game Board</h2>
+                            <ul class="marked-list">
+                                <li>
+                                    Built a Java Spring Boot backend for a dynamic N*N Tic Tac Toe game, allowing for
+                                    flexible grid sizes and scalability to accommodate various board configurations.
+                                </li>
+                                <li>
+                                    Implement intelligent bot players using algorithms such as Minimax or Monte Carlo
+                                    Tree Search. These algorithms will analyze the game state and make strategic moves,
+                                    enhancing the challenge for human players.
+                                </li>
+                                <li>
+                                    Enable real-time gameplay with WebSocket, ensuring instant updates for all players.
+                                    Prioritize a seamless user experience by designing clear APIs and intuitive
+                                    interactions, making the game enjoyable and engaging.
+                                </li>
+                                <li>
+                                    👉 <a style="display: unset" href="https://github.com/tublu001/TicTacToe">Click
+                                    here</a> 👈 for GitHub link
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, H2DB
+                                </li>
+                            </ul>
+                            <button class="close-button" onclick="hideDetails('tictactoe')">Close</button>
+                        </div>
+                    </li>
+
+                    <li class="project-item active" data-filter-item data-category="web developmentt">
+                        <a href="#" onclick="showCommonPopup('libraryManagement')">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="assets/images/libraryManagement.png" alt="Library Management System">
+                            </figure>
+                            <h3 class="project-title">Library Management System</h3>
+                            <p class="project-category">Web development</p>
+                        </a>
+                        <div class="project-details" id="libraryManagement">
+                            <!-- Project details content goes here -->
+                            <h2>Library Management System</h2>
+                            <ul class="marked-list">
+                                <li><strong>Efficient Library Management:</strong> Create a modern Library Management
+                                    System utilizing the power of Spring Cloud and Microservices architecture. Implement
+                                    microservices for different aspects such as book management, user authentication,
+                                    and transaction processing. This approach ensures a scalable and efficient system
+                                    where each microservice can be developed, deployed, and scaled independently.
+                                </li>
+
+                                <li><strong>Seamless Integration and Intercommunication:</strong> Utilize Spring Cloud
+                                    for seamless integration of microservices, allowing them to communicate effectively.
+                                    Implement service discovery, load balancing, and centralized configuration
+                                    management to enhance the overall system stability. With a microservices
+                                    architecture, the Library Management System becomes flexible, resilient, and
+                                    adaptable to changing requirements.
+                                </li>
+
+                                <li><strong>Enhanced User Experience:</strong> Design a user-friendly interface for both
+                                    librarians and patrons, offering features such as easy book search, online
+                                    reservations, and personalized recommendations. Employ Spring Cloud components to
+                                    handle user authentication and authorization, ensuring secure access to the system.
+                                    The Microservices architecture ensures that the Library Management System is
+                                    scalable, responsive, and capable of handling a growing number of users and
+                                    transactions.
+                                </li>
+
+                                <li>
+                                    👉 <a style="display: unset" href="https://github.com/tublu001/Library-Management-System">Click
+                                    here</a> 👈 for GitHub link
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, MySql, DataJPA, MicroServices,
+                                    Eureka, FeignClient
+                                </li>
+                            </ul>
+                            <button class="close-button" onclick="hideDetails('libraryManagement')">Close</button>
+                        </div>
+                    </li>
+
+                    <li class="project-item active" data-filter-item data-category="web development">
+                        <a href="#" onclick="showCommonPopup('passwordManagement')">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="assets/images/passwordManager.png" alt="Tic Tac Toe">
+                            </figure>
+                            <h3 class="project-title">Multi User Password Management Tool</h3>
+                            <p class="project-category">Web development</p>
+                        </a>
+                        <div class="project-details" id="passwordManagement">
+                            <!-- Project details content goes here -->
+                            <h2>Multi User Password Management Tool</h2>
+                            <ul class="marked-list">
+                                <li>
+                                    Introducing the Password Management Tool, a secure and user-friendly platform built
+                                    with Java Spring Boot. This multi-user tool is designed to provide a safe repository
+                                    for storing and managing account credentials. Users can confidently store their
+                                    sensitive information, knowing it is protected by robust security measures.
+                                </li>
+                                <li>
+                                    The Password Management Tool leverages Bcrypt encoding for enhanced security. This
+                                    industry-standard encryption ensures that user passwords are stored securely,
+                                    reducing the risk of unauthorized access. With a focus on privacy and data
+                                    protection, this tool offers users peace of mind when managing their account
+                                    credentials.
+                                </li>
+                                <li>
+                                    Built with a user-centric approach, the Password Management Tool is accessible to
+                                    multiple users, allowing them to efficiently organize and retrieve their stored
+                                    credentials. The use of Java Spring Boot guarantees a reliable and scalable system,
+                                    providing a seamless and secure experience for users managing their password
+                                    information.
+                                </li>
+                                <li>
+                                    👉 <a style="display: unset" href="https://github.com/tublu001/Password-Management-Tool">Click
+                                    here</a> 👈 for GitHub link
+                                </li>
+                                <li>
+                                    <strong>TechStack:</strong> JAVA, Spring Boot, MySql, DataJPA, JSP
+                                </li>
+                            </ul>
+                            <button class="close-button" onclick="hideDetails('passwordManagement')">Close</button>
                         </div>
                     </li>
 
