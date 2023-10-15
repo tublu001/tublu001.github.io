@@ -113,7 +113,20 @@
             font-size: 18px; /* Specific font size */
             padding-left: 20px; /* Adjust padding as needed */
         }
+
+        .project-img {
+            height: 160px; /* Adjust the height as needed */
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
     </style>
+
     <script>
         function showCommonPopup(detailsId) {
             var detailsContent = document.getElementById(detailsId).innerHTML;
@@ -948,13 +961,13 @@
 
                 <ul class="project-list">
 
-                    <li class="project-item active" data-filter-item data-category="Enterprise Application">
+                    <li class="project-item active" data-filter-item data-category="enterprise application">
                         <a href="#" onclick="showCommonPopup('mpgs')">
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-                                <img src="assets/images/mpgs.jpg" alt="DocEase">
+                                <img src="assets/images/mpgs.jpg" alt="Mpgs">
                             </figure>
                             <h3 class="project-title">Payment Gateway</h3>
                             <p class="project-category">Enterprise Application</p>
