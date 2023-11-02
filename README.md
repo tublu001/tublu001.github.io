@@ -4,7 +4,7 @@ vCard is a fully responsive personal portfolio website, responsive for all devic
 
 ## Credits
 
-Credit goes to [codewithsadee](https://github.com/codewithsadee)
+Credit to [codewithsadee](https://github.com/codewithsadee)
 
 ## Demo
 
