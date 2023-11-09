@@ -13,20 +13,29 @@
 </head>
 <body>
 <script>
+    // Use XMLHttpRequest to read the file content
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'resume.txt', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
             var redirectURL = xhr.responseText.trim();
 
             // Redirect to the stored URL
             if (redirectURL) {
                 window.location.href = redirectURL;
             } else {
-                console.error('No stored URL found.');
+                console.error('No valid URL found in the file.');
             }
+        } else {
+            console.error('Failed to load file. Status: ' + xhr.status);
         }
     };
+
+    xhr.onerror = function () {
+        console.error('Error while reading the file.');
+    };
+
     xhr.send();
 </script>
 </body>
